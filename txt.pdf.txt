@@ -1,1 +1,42 @@
-navigation wada naaaa
+aws =
+cd pem file directory
+chmod 400 "Portfolio-Main.pem"
+ssh -i "Portfolio-Main.pem" ubuntu@ec2-3-91-207-3.compute-1.amazonaws.com
+sudo apt-get update -y
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+sudo apt install npm -y
+sudo apt install nginx -y
+git clone https://
+cd Portfolio-Main
+npm install
+npm run build
+cd
+sudo mkdir -p /var/www/vhosts/frontend/   frontend folder create
+cd Portfolio-Main (git clone repo directory)
+sudo cp -R dist/ /var/www/vhosts/frontend/   build ek folder ek athult danw .. so ngix can read it
+cd
+cd /etc/nginx/sites-enabled/
+ls    default awoth delete krnnona 
+sudo rm -rf default
+ls ghla delete d blnw
+cd  root ekt
+sudo vim /etc/nginx/sites-available/<nginx-file-name>
+server {
+    listen 80 default_server;
+    server_name _;
+
+    location / {
+        autoindex on;
+        root /var/www/vhosts/portfolio/dist;  # Path frontend build
+        try_files $uri /index.html;
+    }
+}
+:wr
+:wq
+sudo ln -s /etc/nginx/sites-available/<nginx file name>/etc/nginx/sites-enabled/
+sudo gpasswd -a www-data <username>      (ubuntu) - adding a static group to directory
+sudo systemctl restart nginx
+
+
+
